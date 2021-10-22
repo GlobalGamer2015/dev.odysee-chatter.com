@@ -11,6 +11,7 @@ import Icon from 'component/common/icon';
 import WaitUntilOnPage from 'component/common/wait-until-on-page';
 import { GetLinksData } from 'util/buildHomepage';
 import { getLivestreamUris } from 'util/livestream';
+import 'scss/component/_custom.scss';
 
 // @if TARGET='web'
 import Pixel from 'web/component/pixel';
@@ -109,7 +110,13 @@ function HomePage(props: Props) {
   }, []);
 
   return (
-    <Page fullWidthPage>
+    <Page fullWidthPage>Test
+      {<div className="custom_header">
+        The following PR's and Issues are included here.
+        <p className="custom_paragraph">
+          {/* <a className="custom_link" href="#">#--: Name Here</a> */}
+        </p>
+      </div>}
       {!SIMPLE_SITE && (authenticated || !IS_WEB) && !subscribedChannels.length && (
         <div className="notice-message">
           <h1 className="section__title">
