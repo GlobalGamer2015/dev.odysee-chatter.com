@@ -42,7 +42,7 @@
     "lint-fix": "eslint --fix --quiet 'ui/**/*.{js,jsx}' && eslint --fix --quiet 'extras/**/*.{js,jsx}' && eslint --fix --quiet 'web/**/*.{js,jsx}' && eslint --fix --quiet 'electron/**/*.js'",
     "format": "prettier 'src/**/*.{js,jsx,scss,json}' --write",
     "flow-defs": "flow-typed install",
-    "precommit": "lint-staged",
+    "precommit": "lint-staged && compile:web",
     "preinstall": "",
     "postinstall": "cd web && yarn && cd .. && if-env NODE_ENV=production && yarn postinstall:warning || if-env APP_ENV=web && echo 'Done installing deps' || yarn postinstall:electron",
     "postinstall:electron": "electron-builder install-app-deps && node ./build/downloadDaemon.js && node ./build/downloadLBRYFirst.js",
