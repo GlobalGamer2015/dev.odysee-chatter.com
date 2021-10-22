@@ -1,0 +1,1 @@
+yarn copyenv && cd web && yarn dev
