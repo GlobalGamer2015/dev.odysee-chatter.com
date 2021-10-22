@@ -1,25 +1,7 @@
-### macOS ###
-# General
-.DS_Store
-.AppleDouble
-.LSOverride
 node_modules
-dist
-/static/lbrynet*
-/static/daemon
-/static/locales
 yarn-error.log
 package-lock.json
-.transifexrc
-.idea/
-/build/daemon*
 /lbrytv/node_modules
-/static/lbry-first/
-/build/lbryFirst*
 /web/node_modules/*
 /web/.env
-/web/.env.defaults
 .env
-.env.ody
-.env.desktop
-.env.lbrytv
