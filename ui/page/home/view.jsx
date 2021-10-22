@@ -110,7 +110,7 @@ function HomePage(props: Props) {
   }, []);
 
   return (
-    <Page fullWidthPage>Test
+    <Page fullWidthPage>
       {<div className="custom_header">
         The following PR's and Issues are included here.
         <p className="custom_paragraph">
