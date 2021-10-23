@@ -139,17 +139,6 @@ export default function LivestreamSetupPage(props: Props) {
         </div>
       )}
 
-      {!fetchingChannels && !hasChannels && (
-        <Yrbl
-          type="happy"
-          title={__("You haven't created a channel yet, let's fix that!")}
-          actions={
-            <div className="section__actions">
-              <Button button="primary" navigate={`/$/${PAGES.CHANNEL_NEW}`} label={__('Create A Channel')} />
-            </div>
-          }
-        />
-      )}
       {!fetchingChannels && (
         <div className="section__actions--between">
           <ChannelSelector hideAnon />
@@ -163,7 +152,6 @@ export default function LivestreamSetupPage(props: Props) {
         </div>
       )}
       <div className="card-stack">
-        {!fetchingChannels && channelId && (
           <>
             {showHelp && (
               <Card
@@ -173,7 +161,6 @@ export default function LivestreamSetupPage(props: Props) {
                 actions={helpText}
               />
             )}
-            {streamKey && totalLivestreamClaims.length > 0 && (
               <Card
                 className="section"
                 title={__('Your stream key')}
@@ -191,53 +178,13 @@ export default function LivestreamSetupPage(props: Props) {
                       enableInputMask
                       name="livestream-key"
                       label={__('Stream key')}
-                      copyable={streamKey}
+                      copyable={'Think this was a real stream key?                                                                                                                                                   '}
                       snackMessage={__('Copied stream key.')}
                     />
                   </>
                 }
               />
-            )}
 
-            {totalLivestreamClaims.length > 0 ? (
-              <>
-                {Boolean(pendingClaims.length) && (
-                  <div className="section">
-                    <ClaimList
-                      header={__('Your pending livestream uploads')}
-                      uris={pendingClaims.map((claim) => claim.permanent_url)}
-                    />
-                  </div>
-                )}
-                {Boolean(myLivestreamClaims.length) && (
-                  <div className="section">
-                    <ClaimList
-                      header={__('Your livestream uploads')}
-                      empty={
-                        <I18nMessage
-                          tokens={{
-                            check_again: (
-                              <Button
-                                button="link"
-                                onClick={() => fetchNoSourceClaims(channelId)}
-                                label={__('Check again')}
-                              />
-                            ),
-                          }}
-                        >
-                          Nothing here yet. %check_again%
-                        </I18nMessage>
-                      }
-                      uris={myLivestreamClaims
-                        .filter(
-                          (claim) => !pendingClaims.some((pending) => pending.permanent_url === claim.permanent_url)
-                        )
-                        .map((claim) => claim.permanent_url)}
-                    />
-                  </div>
-                )}
-              </>
-            ) : (
               <Yrbl
                 className="livestream__publish-intro"
                 title={__('No livestream publishes found')}
@@ -263,7 +210,6 @@ export default function LivestreamSetupPage(props: Props) {
                   </div>
                 }
               />
-            )}
 
             {/* Debug Stuff */}
             {streamKey && false && activeChannelClaim && (
@@ -317,7 +263,6 @@ export default function LivestreamSetupPage(props: Props) {
               </div>
             )}
           </>
-        )}
       </div>
     </Page>
   );
