@@ -111,12 +111,16 @@ function HomePage(props: Props) {
 
   return (
     <Page fullWidthPage>
-      {<div className="custom_header">
-        The following PR's and Issues are included here.
-        <p className="custom_paragraph">
-          {/* <a className="custom_link" href="#">#--: Name Here</a> */}
-        </p>
-      </div>}
+      {<div className="notice-message">
+        <div className="custom_header">
+          The following PR's and Issues are included here.
+          <p className="custom_paragraph">
+            No PR's or Issues are included yet.
+            {/* <a className="custom_link" href="#">#--: Name Here</a> */}
+          </p>
+        </div>
+      </div>
+      }
       {!SIMPLE_SITE && (authenticated || !IS_WEB) && !subscribedChannels.length && (
         <div className="notice-message">
           <h1 className="section__title">
@@ -132,7 +136,7 @@ function HomePage(props: Props) {
         </div>
       )}
       {/* @if TARGET='web' */}
-      {SIMPLE_SITE && <Meme />}
+      {SIMPLE_SITE}
       {/* @endif */}
       {rowData.map(({ title, route, link, icon, help, pinnedUrls: pinUrls, options = {} }, index) => {
         // add pins here
