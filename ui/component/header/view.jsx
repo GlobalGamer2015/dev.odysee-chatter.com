@@ -171,7 +171,7 @@ const Header = (props: Props) => {
   }
 
   const loginButtons = (
-    <div className="header__auth-buttons">
+    /* <div className="header__auth-buttons">
       <Button
         navigate={`/$/${PAGES.AUTH_SIGNIN}`}
         button="link"
@@ -180,7 +180,8 @@ const Header = (props: Props) => {
         disabled={user === null}
       />
       <Button navigate={`/$/${PAGES.AUTH}`} button="primary" label={__('Sign Up')} disabled={user === null} />
-    </div>
+    </div> */
+    ''
   );
 
   type BalanceButtonProps = { className: string };
