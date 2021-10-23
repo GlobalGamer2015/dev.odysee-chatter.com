@@ -279,23 +279,6 @@ function SideNavigation(props: Props) {
     return () => window.removeEventListener('keydown', handleKeydown);
   }, [sidebarOpen, setSidebarOpen, isAbsolute]);
 
-  const unAuthNudge =
-    DOMAIN === 'lbry.tv' ? null : (
-      <div className="navigation__auth-nudge">
-        <span>
-          <I18nMessage tokens={{ lbc: <Icon icon={ICONS.LBC} /> }}>
-            Sign up to earn %lbc% for you and your favorite creators.
-          </I18nMessage>
-        </span>
-        <Button
-          button="secondary"
-          label={__('Sign Up')}
-          navigate={`/$/${PAGES.AUTH}?src=sidenav_nudge`}
-          disabled={user === null}
-        />{' '}
-      </div>
-    );
-
   const helpLinks = (
     <ul className="navigation__tertiary navigation-links--small">
       <li className="navigation-link">
@@ -375,7 +358,7 @@ function SideNavigation(props: Props) {
               </ul>
             )}
 
-            {!isAuthenticated && sidebarOpen && unAuthNudge}
+            {!isAuthenticated && sidebarOpen}
           </div>
 
           {SIMPLE_SITE && sidebarOpen && helpLinks}
@@ -450,7 +433,7 @@ function SideNavigation(props: Props) {
                   ))}
                 </ul>
               )}
-              {!isAuthenticated && unAuthNudge}
+              {!isAuthenticated}
               {SIMPLE_SITE && helpLinks}
             </div>
           </nav>
