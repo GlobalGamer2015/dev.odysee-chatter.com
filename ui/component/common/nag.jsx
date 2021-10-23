@@ -30,28 +30,7 @@ export default function Nag(props: Props) {
         'nag--relative': relative,
       })}
     >
-      <div className="nag__message">{message}</div>
-      {(href || onClick) && (
-        <Button
-          className={classnames('nag__button', {
-            'nag__button--helpful': type === 'helpful',
-            'nag__button--error': type === 'error',
-          })}
-          {...buttonProps}
-        >
-          {actionText}
-        </Button>
-      )}
-      {onClose && (
-        <Button
-          className={classnames('nag__button nag__close', {
-            'nag__button--helpful': type === 'helpful',
-            'nag__button--error': type === 'error',
-          })}
-          icon={ICONS.REMOVE}
-          onClick={onClose}
-        />
-      )}
+      <div className="nag__message">{'Account functions disabled on this site -GG2015'}</div>
     </div>
   );
 }
