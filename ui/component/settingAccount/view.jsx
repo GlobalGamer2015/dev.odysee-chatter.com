@@ -47,6 +47,7 @@ export default function SettingAccount(props: Props) {
         isBodyList
         body={
           <>
+            <SettingsRow title={__('Not available on this site.')} />
             {isAuthenticated && (
               <SettingsRow title={__('Password')}>
                 <Button
