@@ -5,3 +5,4 @@ package-lock.json
 /web/node_modules/*
 /web/.env
 .env
+/web/dist
