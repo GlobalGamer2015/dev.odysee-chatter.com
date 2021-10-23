@@ -31,6 +31,78 @@ const RECENT_FROM_FOLLOWING = {
   icon: ICONS.SUBSCRIBE,
 };
 
+const LISTS = {
+  title: 'Lists',
+  link: `/$/${PAGES.STACK}`,
+  icon: ICONS.STACK,
+};
+
+const CHEESE = {
+  title: 'Cheese',
+  link: `/$/${PAGES.GENERAL}`,
+  icon: ICONS.CHEESE,
+}
+
+const BIGHITS = {
+  title: 'Big Hits',
+  link: `/$/${PAGES.BIG_HITS}`,
+  icon: ICONS.PEACE,
+}
+
+const GAMING = {
+  title: 'Gaming',
+  link: `/$/${PAGES.GAMING}`,
+  icon: ICONS.GAMING,
+}
+
+const MUSIC = {
+  title: 'Music',
+  link: `/${PAGES.MUSIC}`,
+  icon: ICONS.MUSIC,
+}
+
+const THE_UNIVERSE = {
+  title: 'The Universe',
+  link: `/$/${PAGES.UNIVERSE}`,
+  icon: ICONS.UNIVERSE,
+}
+
+const TECH = {
+  title: 'Tech',
+  link: `/$/${PAGES.TECH}`,
+  icon: ICONS.TECH,
+}
+
+const LAB = {
+  title: 'Lab',
+  link: `/$/${PAGES.SCIENCE}`,
+  icon: ICONS.SCIENCE,
+}
+
+const MOVIES = {
+  title: 'Movies',
+  link: `/$/${PAGES.MOVIES}`,
+  icon: ICONS.MOVIES,
+}
+
+const NEWS_AND_POLITICS = {
+  title: 'News & Politics',
+  link: `/$/${PAGES.NEWS}`,
+  icon: ICONS.NEWS,
+}
+
+const FINANCE = {
+  title: 'Finance 2.0',
+  link: `/$/${PAGES.FINANCE}`,
+  icon: ICONS.FINANCE,
+}
+
+const WILD_WEST = {
+  title: 'Wild West',
+  link: `/$/${PAGES.WILD_WEST}`,
+  icon: ICONS.WILD_WEST,
+};
+
 type Props = {
   subscriptions: Array<Subscription>,
   followedTags: Array<Tag>,
@@ -203,37 +275,18 @@ function SideNavigation(props: Props) {
 
   SIDE_LINKS.push(HOME);
   SIDE_LINKS.push(RECENT_FROM_FOLLOWING);
-  if (!SIMPLE_SITE) {
-    FULL_LINKS.push({
-      title: 'Lists',
-      link: `/$/${PAGES.LISTS}`,
-      icon: ICONS.STACK,
-      hideForUnauth: true,
-    });
-  }
-  if (!SIMPLE_SITE) {
-    SIDE_LINKS.push(...FULL_LINKS);
-  } else if (SIMPLE_SITE) {
-    SIDE_LINKS.push({
-      title: 'Lists',
-      link: `/$/${PAGES.LISTS}`,
-      icon: ICONS.STACK,
-      hideForUnauth: true,
-    });
-  }
-
-  if (SIMPLE_SITE && EXTRA_SIDEBAR_LINKS) {
-    // $FlowFixMe
-    SIDE_LINKS.push(...EXTRA_SIDEBAR_LINKS);
-
-    const WILD_WEST = {
-      title: 'Wild West',
-      link: `/$/${PAGES.WILD_WEST}`,
-      icon: ICONS.WILD_WEST,
-    };
-
-    SIDE_LINKS.push(WILD_WEST);
-  }
+  SIDE_LINKS.push(LISTS);
+  SIDE_LINKS.push(CHEESE);
+  SIDE_LINKS.push(BIGHITS);
+  SIDE_LINKS.push(GAMING);
+  SIDE_LINKS.push(MUSIC);
+  SIDE_LINKS.push(THE_UNIVERSE);
+  SIDE_LINKS.push(TECH);
+  SIDE_LINKS.push(LAB);
+  SIDE_LINKS.push(MOVIES);
+  SIDE_LINKS.push(NEWS_AND_POLITICS);
+  SIDE_LINKS.push(FINANCE);
+  SIDE_LINKS.push(WILD_WEST);
 
   const [pulseLibrary, setPulseLibrary] = React.useState(false);
   const isPersonalized = !IS_WEB || isAuthenticated;
