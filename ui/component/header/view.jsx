@@ -284,7 +284,7 @@ const Header = (props: Props) => {
                   {!authHeader && <WunderBar />}
 
                   <HeaderMenuButtons
-                    authenticated={authenticated}
+                    authenticated='true'
                     notificationsEnabled={notificationsEnabled}
                     history={history}
                     handleThemeToggle={handleThemeToggle}
@@ -444,12 +444,10 @@ function HeaderMenuButtons(props: HeaderMenuButtonProps) {
               {__('Sync YouTube Channel')}
             </MenuItem>
             {/* @endif */}
-            {livestreamEnabled && (
-              <MenuItem className="menu__link" onSelect={() => history.push(`/$/${PAGES.LIVESTREAM}`)}>
-                <Icon aria-hidden icon={ICONS.VIDEO} />
-                {__('Go Live')}
-              </MenuItem>
-            )}
+            <MenuItem className="menu__link" onSelect={() => history.push(`/$/${PAGES.LIVESTREAM}`)}>
+              <Icon aria-hidden icon={ICONS.VIDEO} />
+              {__('Go Live')}
+            </MenuItem>
           </MenuList>
         </Menu>
       )}
