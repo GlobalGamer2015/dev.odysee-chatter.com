@@ -77,6 +77,7 @@ const SettingsStripeAccount = lazyImport(() =>
   import('page/settingsStripeAccount' /* webpackChunkName: "secondary" */)
 );
 const SettingsCreatorPage = lazyImport(() => import('page/settingsCreator' /* webpackChunkName: "secondary" */));
+const livestreamOverlayPage = lazyImport(() => import('page/livestreamOverlay' /* webpackChunkName: "secondary" */));
 const SettingsNotificationsPage = lazyImport(() =>
   import('page/settingsNotifications' /* webpackChunkName: "secondary" */)
 );
@@ -90,6 +91,7 @@ const TopPage = lazyImport(() => import('page/top' /* webpackChunkName: "seconda
 const UpdatePasswordPage = lazyImport(() => import('page/passwordUpdate' /* webpackChunkName: "passwordUpdate" */));
 const Welcome = lazyImport(() => import('page/welcome' /* webpackChunkName: "secondary" */));
 const YoutubeSyncPage = lazyImport(() => import('page/youtubeSync' /* webpackChunkName: "secondary" */));
+const OverlayPage = lazyImport(() => import('page/overlay' /* webpackChunkName: "secondary" */));
 
 // Tell the browser we are handling scroll restoration
 if ('scrollRestoration' in history) {
@@ -326,6 +328,7 @@ function AppRouter(props: Props) {
         <PrivateRoute {...props} path={`/$/${PAGES.TAGS_FOLLOWING_MANAGE}`} component={TagsFollowingManagePage} />
         <PrivateRoute {...props} path={`/$/${PAGES.SETTINGS_BLOCKED_MUTED}`} component={ListBlockedPage} />
         <PrivateRoute {...props} path={`/$/${PAGES.SETTINGS_CREATOR}`} component={SettingsCreatorPage} />
+        <Route {...props} path={`/$/${PAGES.LIVESTREAM_OVERLAY}`} component={livestreamOverlayPage} />
         <PrivateRoute {...props} path={`/$/${PAGES.WALLET}`} exact component={WalletPage} />
         <PrivateRoute {...props} path={`/$/${PAGES.CHANNELS}`} component={ChannelsPage} />
         <Route {...props} path={`/$/${PAGES.LIVESTREAM}`} component={LiveStreamSetupPage} />
@@ -344,6 +347,7 @@ function AppRouter(props: Props) {
         {/* Below need to go at the end to make sure we don't match any of our pages first */}
         <Route path="/:claimName" exact component={ShowPage} />
         <Route path="/:claimName/:streamName" exact component={ShowPage} />
+        <Route path={`/$/overlay/:claimName/:claimId`} exact component={OverlayPage} />
         <Route path="/*" component={FourOhFourPage} />
       </Switch>
     </React.Suspense>

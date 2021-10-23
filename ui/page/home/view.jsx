@@ -113,10 +113,9 @@ function HomePage(props: Props) {
     <Page fullWidthPage>
       {<div className="notice-message">
         <div className="custom_header">
-          The following PR's and Issues are included here.
+          The following PR's, Features and Issues are included here.
           <p className="custom_paragraph">
-            No PR's or Issues are included yet.
-            {/* <a className="custom_link" href="#">#--: Name Here</a> */}
+            <a className="custom_link" href="https://github.com/GlobalGamer2015/odysee-frontend/tree/overlay-feature">Branch: overlay-feature</a>
           </p>
         </div>
       </div>

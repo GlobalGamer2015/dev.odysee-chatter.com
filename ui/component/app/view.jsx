@@ -275,7 +275,10 @@ function App(props: Props) {
 
   useEffect(() => {
     // $FlowFixMe
-    document.documentElement.setAttribute('theme', 'dark');
+    if (!pathname.includes('/$/overlay/')) {
+      document.documentElement.setAttribute('theme', 'dark');
+      document.documentElement.setAttribute('dir', 'ltr');
+    }
   }, [theme]);
 
   useEffect(() => {

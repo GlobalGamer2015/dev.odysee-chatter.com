@@ -17,6 +17,7 @@ import Card from 'component/common/card';
 import ClaimList from 'component/claimList';
 import usePersistedState from 'effects/use-persisted-state';
 import { LIVESTREAM_RTMP_URL } from 'constants/livestream';
+import SettingsRow from 'component/settingsRow';
 
 type Props = {
   channels: Array<ChannelClaim>,
@@ -181,6 +182,28 @@ export default function LivestreamSetupPage(props: Props) {
                       copyable={'Think this was a real stream key?                                                                                                                                                   '}
                       snackMessage={__('Copied stream key.')}
                     />
+                    <CopyableText
+                      primaryButton
+                      name="overlay-url"
+                      label={__('Overlay URL')}
+                      copyable={`https://dev.odysee-chatter.com/$/overlay/UserClaimNameGoesHere/UserClaimIdGoesHere`} // https://localhost:9090/$/overlay/${activeChannelClaim.name}/${activeChannelClaim.claim_id}
+                      snackMessage={__('Copied overlay url.')}
+                    />
+                    <CopyableText
+                      primaryButton
+                      name="overlay-url"
+                      label={__('Example Overlay URL')}
+                      copyable={`https://dev.odysee-chatter.com/$/overlay/@GG2015/b8fbd24ab4644148cfed022732c48677cf662047`}
+                      snackMessage={__('Copied example overlay url.')}
+                    />
+                    <SettingsRow title={__('Overlay settings and instructions')}>
+                      <Button
+                        button="inverse"
+                        label={__('Manage')}
+                        icon={ICONS.ARROW_RIGHT}
+                        navigate={`/$/${PAGES.LIVESTREAM_OVERLAY}`}
+                      />
+                    </SettingsRow>
                   </>
                 }
               />
