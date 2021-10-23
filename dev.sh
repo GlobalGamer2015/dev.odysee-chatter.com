@@ -1,1 +1,1 @@
-yarn copyenv && cd web && yarn dev
+yarn dev:web
