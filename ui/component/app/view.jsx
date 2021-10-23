@@ -275,7 +275,7 @@ function App(props: Props) {
 
   useEffect(() => {
     // $FlowFixMe
-    document.documentElement.setAttribute('theme', theme);
+    document.documentElement.setAttribute('theme', 'dark');
   }, [theme]);
 
   useEffect(() => {
