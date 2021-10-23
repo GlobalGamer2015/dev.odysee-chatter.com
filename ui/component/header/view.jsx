@@ -16,7 +16,7 @@ import NotificationBubble from 'component/notificationBubble';
 import NotificationHeaderButton from 'component/notificationHeaderButton';
 import ChannelThumbnail from 'component/channelThumbnail';
 import SkipNavigationButton from 'component/skipNavigationButton';
-import Logo from 'component/logo';
+import Logo from './odysee_white.png';
 // @if TARGET='app'
 import { remote } from 'electron';
 import { IS_MAC } from 'component/app/view';
@@ -268,7 +268,7 @@ const Header = (props: Props) => {
                 // @endif
                 {...homeButtonNavigationProps}
               >
-                <Logo />
+                <img className={'header__navigation-logo'} src={Logo} />
               </Button>
               {!authHeader && (
                 <div className="header__center">
