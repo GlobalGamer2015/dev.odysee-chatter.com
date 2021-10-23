@@ -47,30 +47,13 @@ class SettingsPage extends React.PureComponent<Props> {
         backout={{ title: __('Settings'), backLabel: __('Back') }}
         className="card-stack"
       >
-        {!isAuthenticated && IS_WEB && (
-          <>
-            <SettingUnauthenticated />
-            <div className="main--empty">
-              <Yrbl
-                type="happy"
-                title={__('Sign up for full control')}
-                subtitle={__('Unlock new buttons that change things.')}
-                actions={
-                  <div className="section__actions">
-                    <Button button="primary" icon={ICONS.SIGN_UP} label={__('Sign Up')} navigate={`/$/${PAGES.AUTH}`} />
-                  </div>
-                }
-              />
-            </div>
-          </>
-        )}
 
-        {!IS_WEB && noDaemonSettings ? (
+        {!IS_WEB ? (
           <section className="card card--section">
             <div className="card__title card__title--deprecated">{__('Failed to load settings.')}</div>
           </section>
         ) : (
-          <div className={classnames('card-stack', { 'card--disabled': IS_WEB && !isAuthenticated })}>
+          <div className={classnames('card-stack', { 'card--enabled': IS_WEB })}>
             <SettingAppearance />
             <SettingAccount />
             <SettingContent />
