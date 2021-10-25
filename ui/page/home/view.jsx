@@ -116,6 +116,7 @@ function HomePage(props: Props) {
           The following PR's, Features and Issues are included here.
           <p className="custom_paragraph">
             <a className="custom_link" href="https://github.com/GlobalGamer2015/odysee-frontend/tree/overlay-feature">Branch: overlay-feature</a>
+            <a className="custom_link" href="https://github.com/OdyseeTeam/odysee-frontend/pull/124">PR: Theatre mode sidebars</a>
           </p>
         </div>
       </div>

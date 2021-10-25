@@ -6,6 +6,7 @@
   // Control Bar (container)
   .vjs-control-bar {
     background: none;
+    color: black;
 
     &::before {
       position: absolute;
@@ -13,8 +14,7 @@
       content: '';
       height: 5rem;
       width: 100%;
-      background: rgba(20, 20, 20, 0.45);
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 10%, rgba(0, 0, 0, 0) 100%);
+      background: none;
     }
   }
 
@@ -81,8 +81,23 @@
 
   // Menu size
   .vjs-playback-rate .vjs-menu .vjs-menu-content {
+    background: transparent;
     width: 125%;
     font-size: 10px;
+
+    .vjs-selected {
+      background: black;
+      color: white;
+    }
+
+    .vjs-menu-item {
+      background: black;
+      color: white;
+    }
+  }
+
+  ul.vjs-menu-content {
+    border-radius: 15px;
   }
 
   // Volume slider
@@ -93,6 +108,22 @@
 
     .vjs-volume-control.vjs-volume-horizontal {
       transition: 0.2s;
+    }
+
+    .vjs-volume-tooltip {
+      background: black;
+      color: white;
+    }
+
+    .vjs-volume-level {
+      background: black;
+      color: var(--color-primary);
+    }
+
+    button.vjs-control.vjs-button.vjs-button--theater-mode {
+      background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='14' viewBox='0 -2 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-monitor'><rect x='2' y='3' width='20' height='14' rx='2' ry='2'></rect><line x1='8' y1='21' x2='16' y2='21'></line><line x1='12' y1='17' x2='12' y2='21'></line></svg>");
+      background-repeat: no-repeat;
+      background-position: center;
     }
   }
 }
